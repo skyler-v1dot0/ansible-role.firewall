@@ -36,6 +36,7 @@
     to_port: "{{ item.name }}"
     proto: "{{ item.protocol | default(firewall_default_protocol) }}"
     route: "{{ item.route }}"
+    direction: "{{ item.direction }}"
   loop: "{{ firewall_services }}"
   when:
     - ansible_connection not in [ "container", "docker", "community.docker.docker" ]
@@ -50,6 +51,7 @@
     to_port: "{{ item.name }}"
     proto: "{{ item.protocol | default(firewall_default_protocol) }}"
     route: "{{ item.route }}"
+    direction: "{{ item.direction }}"
     delete: true
   loop: "{{ firewall_services }}"
   when:
