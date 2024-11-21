@@ -79,3 +79,29 @@
   when:
     - firewall_services is defined
     - item.route is defined
+
+#testing assert check for interface_in
+- name: assert | Test item with interface_in in firewall_services
+  ansible.builtin.assert:
+    that:
+      - item.interface_in is string
+    quiet: true
+  loop: "{{ firewall_services }}"
+  loop_control:
+    label: "{{ item.interface_in | default('unset') }}"
+  when:
+    - firewall_services is defined
+    - item.interface_in is defined
+
+#testing assert check for interface_out
+- name: assert | Test item with interface_out in firewall_services
+  ansible.builtin.assert:
+    that:
+      - item.interface_out is string
+    quiet: true
+  loop: "{{ firewall_services }}"
+  loop_control:
+    label: "{{ item.interface_out | default('unset') }}"
+  when:
+    - firewall_services is defined
+    - item.interface_out is defined
