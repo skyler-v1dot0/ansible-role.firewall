@@ -10,6 +10,9 @@ firewall_default_rule: allow
 #Testing adding default route parameter
 firewall_default_route: false
 
+#testing adding default direction parameter
+firewall_default_direction: null
+
 # A list of service to allow traffic to.
 firewall_services:
   - name: ssh
