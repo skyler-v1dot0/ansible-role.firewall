@@ -10,12 +10,6 @@ firewall_default_rule: allow
 # If route is not specified `firewall_services`, fall back to this.
 firewall_default_route: false
 
-# If interface_in is not specificed in `firewall_services`, fall back to this.
-firewall_default_interface_in: None
-
-# If interface_out is not specified in `firewall_services`, fall back to this.
-firewall_default_interface_out: None
-
 # A list of service to allow traffic to.
 firewall_services:
   - name: ssh
