@@ -35,7 +35,7 @@
     rule: "{{ item.rule | default(firewall_default_rule) }}"
     to_port: "{{ item.name }}"
     proto: "{{ item.protocol | default(firewall_default_protocol) }}"
-    route: "{{ item.route }}"
+    route: "{{ item.route | default(false) }}"
     interface_in: "{{ item.interface_in }}"
     interface_out: "{{ item.interface_out }}"
   loop: "{{ firewall_services }}"
@@ -51,7 +51,7 @@
     rule: "{{ item.rule | default(firewall_default_rule) }}"
     to_port: "{{ item.name }}"
     proto: "{{ item.protocol | default(firewall_default_protocol) }}"
-    route: "{{ item.route }}"
+    route: "{{ item.route | default(false) }}"
     interface_in: "{{ item.interface_in }}"
     interface_out: "{{ item.interface_out }}"
     delete: true
