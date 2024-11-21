@@ -65,3 +65,17 @@
   when:
     - firewall_services is defined
     - item.state is defined
+
+#testing assert check for route
+- name: assert | Test item with route in firewall_services
+  ansible.builtin.assert:
+    that:
+      - item.route is bool
+      - item.route in [ true, false ]
+    quiet: true
+  loop: "{{ firewall_services }}"
+  loop_control:
+    label: "{{ item.route | default('unset') }}"
+  when:
+    - firewall_services is defined
+    - item.route is defined
