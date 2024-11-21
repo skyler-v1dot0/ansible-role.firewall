@@ -50,7 +50,7 @@
     rule: "{{ item.rule | default(firewall_default_rule) }}"
     to_port: "{{ item.name }}"
     proto: "{{ item.protocol | default(firewall_default_protocol) }}"
-    route: "{{ item.route }}"
+    route: "{{ item.route | default((firewall_default_route)) }}"
     direction: "{{ item.direction }}"
     delete: true
   loop: "{{ firewall_services }}"
