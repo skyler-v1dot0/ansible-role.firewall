@@ -70,7 +70,7 @@
 - name: assert | Test item with route in firewall_services
   ansible.builtin.assert:
     that:
-      - item.route is bool
+      - (item.route | type_debug) == 'bool'
       - item.route in [ true, false ]
     quiet: true
   loop: "{{ firewall_services }}"
