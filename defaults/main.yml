@@ -7,6 +7,9 @@ firewall_default_protocol: tcp
 # If you don't specify a rule in `firewall_services`, fall back to this.
 firewall_default_rule: allow
 
+#Testing adding default route parameter
+firewall_default_route: false
+
 # A list of service to allow traffic to.
 firewall_services:
   - name: ssh
